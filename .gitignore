@@ -1,0 +1,16 @@
+# Arquivos Terraform locais e informações sensíveis
+*.tfvars
+*.tfstate
+*.tfstate.*
+.terraform/
+terraform.tfstate.backup
+
+# Pacotes e arquivos extraídos de aplicações
+*.zip
+docs/technical-analysis/streampipes/extracted/
+
+# Arquivos acidentais de edição
+terraform/nano
+
+# Pacotes locais de análise do StreamPipes
+docs/technical-analysis/streampipes/
