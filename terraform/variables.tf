@@ -26,8 +26,13 @@ variable "project_name" {
   default     = "telemetryops"
 }
 
-# IP público autorizado a acessar a instância por SSH
+# IP público administrativo autorizado para acesso SSH
 variable "admin_ip" {
-  description = "IP público administrativo autorizado para SSH, com máscara /32"
+  description = "IPv4 administrativo autorizado para SSH em formato CIDR"
   type        = string
+
+  validation {
+    condition     = can(cidrnetmask(var.admin_ip)) && try(split("/", var.admin_ip)[1] == "32", false)
+    error_message = "Informe um IPv4 válido com máscara /32."
+  }
 }
