@@ -66,7 +66,7 @@ resource "aws_security_group" "telemetryops" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = [var.admin_ip]
   }
 
   # Permite acesso HTTPS à aplicação
@@ -75,7 +75,7 @@ resource "aws_security_group" "telemetryops" {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = [var.admin_ip]
   }
 
   # Permite tráfego de saída da instância
