@@ -57,7 +57,7 @@ resource "aws_security_group" "telemetryops" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["${var.admin_ip}/32"]
+    cidr_blocks = [var.admin_ip]
   }
 
   # Permite acesso HTTP à aplicação
