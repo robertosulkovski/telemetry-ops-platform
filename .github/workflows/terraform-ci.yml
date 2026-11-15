@@ -9,7 +9,7 @@ on:
 jobs:
   terraform-validation:
     name: Validate Terraform
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     defaults:
       run:
@@ -18,11 +18,11 @@ jobs:
     steps:
       # Baixa o código do repositório
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # Instala o Terraform
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
+        uses: hashicorp/setup-terraform@v4
 
       # Verifica a formatação
       - name: Terraform Format
