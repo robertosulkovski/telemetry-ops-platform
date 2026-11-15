@@ -1,0 +1,37 @@
+name: Terraform CI
+
+# Executa a pipeline quando um PR é aberto ou atualizado para master
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  terraform-validation:
+    name: Validate Terraform
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: terraform
+
+    steps:
+      # Baixa o código do repositório
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Instala o Terraform
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      # Verifica a formatação
+      - name: Terraform Format
+        run: terraform fmt -check -recursive
+
+      # Inicializa os providers
+      - name: Terraform Init
+        run: terraform init -backend=false
+
+      # Valida a configuração
+      - name: Terraform Validate
+        run: terraform validate
