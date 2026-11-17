@@ -48,7 +48,7 @@ resource "aws_route_table_association" "public" {
 # Cria o Security Group da instância TelemetryOps
 resource "aws_security_group" "telemetryops" {
   name        = "${var.project_name}-sg"
-  description = "Controla o acesso à instância TelemetryOps"
+  description = "Controls access to the TelemetryOps instance"
   vpc_id      = aws_vpc.telemetryops.id
 
   # Permite SSH somente a partir do IP administrativo
