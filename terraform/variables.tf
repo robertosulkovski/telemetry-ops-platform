@@ -36,3 +36,9 @@ variable "admin_ip" {
     error_message = "Informe um IPv4 válido com máscara /32."
   }
 }
+
+# Chave pública SSH utilizada para acessar a instância EC2
+variable "ssh_public_key" {
+  description = "Chave pública SSH para acesso à instância EC2"
+  type        = string
+}
