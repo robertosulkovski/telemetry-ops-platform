@@ -12,5 +12,5 @@ docs/technical-analysis/streampipes/extracted/
 # Arquivos acidentais de edição
 terraform/nano
 
-# Pacotes locais de análise do StreamPipes
-docs/technical-analysis/streampipes/
+# Checksums locais do StreamPipes
+docs/technical-analysis/streampipes/*.sha512
